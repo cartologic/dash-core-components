@@ -953,13 +953,32 @@ class Tests(IntegrationTests):
             '''.replace('    ', '')),
             dcc.Markdown(['# Line one', '## Line two']),
             dcc.Markdown(),
-            dcc.SyntaxHighlighter(dedent('''import python
-                print(3)'''), language='python'),
-            dcc.SyntaxHighlighter([
-                'import python',
-                'print(3)'
-            ], language='python'),
-            dcc.SyntaxHighlighter()
+            dcc.Markdown(dedent('''``` python import python
+                print(3)''')),
+            Markdown([
+            '''
+                import python
+                print(3)
+            '''
+            ]),
+            Markdown([
+            '''
+                import python
+                print(3)
+            '''
+            ], className="myClass", highlight_config={'dark': True}),
+            Markdown([
+            '''
+                import python
+                print('python string')
+            '''
+            ], className="myClass"),
+            Markdown([
+            '''
+                import python
+                # python comment
+            '''
+            ], highlight_config={}),
         ])
         self.startServer(app)
 
