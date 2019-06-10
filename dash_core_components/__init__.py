@@ -42,7 +42,7 @@ _this_module = _sys.modules[__name__]
 
 _js_dist = [
     {
-        'relative_package_path': 'plotly.js',
+        'relative_package_path': 'plotly-1.48.min.js',
         'namespace': 'dash_core_components'
     },
     {
